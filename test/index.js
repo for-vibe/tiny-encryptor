@@ -96,4 +96,16 @@ describe ( 'Tiny Encryptor', it => {
 
   });
 
+  it ( 'works without crypto.subtle', async t => {
+    process.env.FORCE_FALLBACK = '1';
+    const { default: FallbackEncryptor } = await import('../dist/index.js');
+    const input = 'Hello World!';
+    const encrypted = await FallbackEncryptor.encrypt ( input, 'P@ssword!' );
+    t.is ( encrypted instanceof Uint8Array, true );
+    const decrypted = await FallbackEncryptor.decrypt ( encrypted, 'P@ssword!' );
+    t.is ( decrypted instanceof Uint8Array, true );
+    t.is ( U8.decode ( decrypted ), input );
+    delete process.env.FORCE_FALLBACK;
+  });
+
 });

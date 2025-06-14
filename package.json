@@ -24,10 +24,12 @@
     "decrypt"
   ],
   "dependencies": {
-    "crypto-pbkdf2-hmac": "^2.2.2",
     "crypto-random-uint8": "^2.0.1",
     "crypto-sha": "^2.1.1",
     "int32-encoding": "^1.0.1",
+    "@stablelib/aes": "^2.0.1",
+    "@stablelib/gcm": "^2.0.1",
+    "pbkdf2": "^3.1.2",
     "tiny-webcrypto": "^1.0.3",
     "uint8-concat": "^1.0.1",
     "uint8-encoding": "^2.0.1"
@@ -35,6 +37,7 @@
   "devDependencies": {
     "benchloop": "^2.1.1",
     "fava": "^0.3.4",
+    "@types/node": "^20.12.12",
     "tsex": "^4.0.2",
     "typescript": "^5.7.3"
   }
